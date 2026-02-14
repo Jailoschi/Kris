@@ -863,52 +863,20 @@
             </div>
         </div>
 
-        <!-- Screen 2: Question -->
+        <!-- Screen 2: Connect the Stars -->
         <div class="screen" id="screen2">
-            <div class="question-container">
-                <p class="question-text">
-                    Before we continue, Kriseal...<br>
-                    How do I feel when we talk?
-                </p>
-                <div class="answer-options">
-                    <button class="answer-btn" onclick="checkAnswer(this, false)">
-                        Like it's just another conversation
-                    </button>
-                    <button class="answer-btn" onclick="checkAnswer(this, false)">
-                        It's nice, but nothing special
-                    </button>
-                    <button class="answer-btn" onclick="checkAnswer(this, true)">
-                        Like I don't want it to end 💫
-                    </button>
-                    <button class="answer-btn" onclick="checkAnswer(this, false)">
-                        I'm not really sure
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Screen 3: Connect the Stars -->
-        <div class="screen" id="screen3">
             <p class="instruction-text">
                 Connect the stars in order<br>
-                Each one reveals more of my feelings 💫
+                to unlock my message for you 💫
             </p>
             <div class="constellation-container" id="constellation"></div>
             <p class="progress-text" id="constellationProgress">0 / 7 stars connected</p>
         </div>
 
-        <!-- Screen 4: Letter Reveal -->
-        <div class="screen" id="screen4">
+        <!-- Screen 3: Reasons Collection -->
+        <div class="screen" id="screen3">
             <p class="instruction-text">
-                Click each word to reveal my letter 💌
-            </p>
-            <div class="letter-container" id="letterContainer"></div>
-        </div>
-
-        <!-- Screen 5: Reasons Collection -->
-        <div class="screen" id="screen5">
-            <p class="instruction-text">
-                Unlock each one to discover<br>
+                Click each star to discover<br>
                 what makes you so special to me ⭐
             </p>
             <div class="message-grid">
@@ -929,13 +897,13 @@
                     <div class="message-title">Who You Are</div>
                 </div>
             </div>
-            <button class="cosmic-btn" onclick="goToScreen(6)" id="finalBtn" style="opacity: 0; pointer-events: none; transition: all 0.8s;">
+            <button class="cosmic-btn" onclick="goToScreen(4)" id="finalBtn" style="opacity: 0; pointer-events: none; transition: all 0.8s;">
                 <span>Continue to Final Message 💕</span>
             </button>
         </div>
 
-        <!-- Screen 6: Final Reveal -->
-        <div class="screen" id="screen6">
+        <!-- Screen 4: Final Reveal -->
+        <div class="screen" id="screen4">
             <div class="final-container">
                 <div class="final-glow-circle"></div>
                 <div class="final-name">Kriseal</div>
@@ -1014,20 +982,8 @@
             // Scroll to top smoothly
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
-            if (screenNum === 3) initConstellation();
-            if (screenNum === 4) initLetter();
-            if (screenNum === 6) setTimeout(createHeartBurst, 500);
-        }
-
-        // Question Screen
-        function checkAnswer(btn, isCorrect) {
-            if (isCorrect) {
-                btn.classList.add('correct');
-                setTimeout(() => goToScreen(3), 1200);
-            } else {
-                btn.style.opacity = '0.3';
-                btn.style.pointerEvents = 'none';
-            }
+            if (screenNum === 2) initConstellation();
+            if (screenNum === 4) setTimeout(createHeartBurst, 500);
         }
 
         // Enhanced Constellation
@@ -1071,7 +1027,7 @@
             if (constellationOrder === 7) {
                 setTimeout(() => {
                     createMiniCelebration();
-                    setTimeout(() => goToScreen(4), 800);
+                    setTimeout(() => goToScreen(3), 1000);
                 }, 600);
             }
         }
@@ -1100,51 +1056,6 @@
         function createMiniCelebration() {
             for (let i = 0; i < 15; i++) {
                 setTimeout(() => createShootingStar(), i * 100);
-            }
-        }
-
-        // Enhanced Letter Reveal
-        const letterText = [
-            "Dear", "Kriseal,", "From", "the", "first", "time", "we", "talked,", "I", "felt",
-            "something", "different.", "You're", "not", "like", "anyone", "I've", "met", "before.",
-            "Your", "smile,", "your", "laugh,", "the", "way", "you", "see", "the", "world...",
-            "Everything", "about", "you", "draws", "me", "in.", "I", "love", "how", "easy",
-            "it", "is", "to", "talk", "to", "you,", "how", "you", "make", "me", "feel",
-            "like", "I", "can", "be", "myself.", "Kriseal,", "you're", "amazing,", "and",
-            "I", "just", "wanted", "you", "to", "know", "that.", "💫"
-        ];
-
-        function initLetter() {
-            const container = document.getElementById('letterContainer');
-            container.innerHTML = '';
-
-            letterText.forEach((word, index) => {
-                const span = document.createElement('span');
-                span.className = 'letter-word';
-                if (word === 'Kriseal,' || word === 'Kriseal') {
-                    span.classList.add('kriseal-highlight');
-                }
-                span.textContent = word;
-                span.onclick = () => revealWord(span, index);
-                container.appendChild(span);
-            });
-
-            const from = document.createElement('div');
-            from.className = 'letter-from';
-            from.textContent = '- Me 💕';
-            container.appendChild(from);
-        }
-
-        let revealedWords = 0;
-        function revealWord(element, index) {
-            if (!element.classList.contains('revealed')) {
-                element.classList.add('revealed');
-                revealedWords++;
-                
-                if (revealedWords === letterText.length) {
-                    document.querySelector('.letter-from').classList.add('visible');
-                    setTimeout(() => goToScreen(5), 2000);
-                }
             }
         }
 
@@ -1215,7 +1126,7 @@
 
         // Monitor final screen for celebration
         const observer = new MutationObserver(() => {
-            if (document.getElementById('screen6').classList.contains('active')) {
+            if (document.getElementById('screen4').classList.contains('active')) {
                 createHeartBurst();
                 for (let i = 0; i < 5; i++) {
                     setTimeout(createShootingStar, i * 400);
@@ -1223,7 +1134,7 @@
             }
         });
 
-        observer.observe(document.getElementById('screen6'), {
+        observer.observe(document.getElementById('screen4'), {
             attributes: true,
             attributeFilter: ['class']
         });
