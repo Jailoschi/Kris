@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Kriseal 💫</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Raleway:wght@300;400;600;700&family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background: linear-gradient(180deg, #1a0a2e 0%, #2d1b3d 50%, #1a0a2e 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            position: relative;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Enhanced Animated Background */
+        .background {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: linear-gradient(180deg, #16213e 0%, #2d1b3d 30%, #1a0e2e 60%, #0f0728 100%);
+            z-index: 0;
+        }
+
+        .aurora {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0.4;
+            background: linear-gradient(45deg, 
+                rgba(255, 110, 199, 0.15) 0%, 
+                rgba(138, 43, 226, 0.2) 25%, 
+                rgba(75, 0, 130, 0.25) 50%, 
+                rgba(138, 43, 226, 0.2) 75%, 
+                rgba(255, 110, 199, 0.15) 100%);
+            background-size: 400% 400%;
+            animation: auroraMove 15s ease infinite;
+            z-index: 1;
+        }
+
+        @keyframes auroraMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Enhanced Starfield */
+        .stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        .star.small { width: 1px; height: 1px; }
+        .star.medium { width: 2px; height: 2px; }
+        .star.large { 
+            width: 3px; 
+            height: 3px; 
+            box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        .shooting-star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.9),
+                        -150px 0 20px 0px rgba(255, 255, 255, 0.3);
+            animation: shoot 1.5s ease-out;
+        }
+
+        @keyframes shoot {
+            0% {
+                transform: translateX(0) translateY(0) rotate(-45deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-400px) translateY(400px) rotate(-45deg);
+                opacity: 0;
+            }
+        }
+
+        .nebula {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(147, 51, 234, 0.2) 0%, transparent 70%);
+            filter: blur(80px);
+            animation: nebulaDrift 20s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes nebulaDrift {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(100px, 100px); }
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            width: 90%;
+            max-width: 700px;
+            min-height: 100vh;
+            z-index: 10;
+            margin: 0 auto;
+            padding: 60px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Screens */
+        .screen {
+            position: relative;
+            width: 100%;
+            min-height: 80vh;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+            opacity: 0;
+            transform: scale(0.9) rotateY(10deg);
+            transition: opacity 1s, transform 1s;
+        }
+
+        .screen.active {
+            display: flex;
+            opacity: 1;
+            transform: scale(1) rotateY(0deg);
+        }
+
+        /* Welcome Screen - ENHANCED */
+        .welcome-container {
+            text-align: center;
+            position: relative;
+        }
+
+        .sparkle-circle {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border: 2px solid rgba(147, 51, 234, 0.3);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .sparkle-circle::before {
+            content: '✨';
+            position: absolute;
+            font-size: 24px;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .welcome-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 90px;
+            background: linear-gradient(135deg, #ffb6d9 0%, #c489e8 25%, #a8d5ff 50%, #ffb6d9 100%);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+            animation: titleGlow 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 30px rgba(255, 182, 217, 0.8));
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { 
+                background-position: 0% 50%;
+                filter: drop-shadow(0 0 30px rgba(255, 182, 217, 0.8));
+            }
+            50% { 
+                background-position: 100% 50%;
+                filter: drop-shadow(0 0 50px rgba(196, 137, 232, 0.9));
+            }
+        }
+
+        .welcome-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            color: #d4a5f5;
+            margin-bottom: 50px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cosmic-btn {
+            padding: 20px 60px;
+            font-size: 22px;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 600;
+            background: linear-gradient(135deg, #a78bfa 0%, #c084fc 50%, #e879f9 100%);
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.4s;
+            box-shadow: 0 15px 45px rgba(167, 139, 250, 0.5),
+                        inset 0 0 20px rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeInUp 1s ease 1s forwards;
+        }
+
+        .cosmic-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cosmic-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cosmic-btn:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 65px rgba(167, 139, 250, 0.7),
+                        inset 0 0 30px rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.7);
+            background: linear-gradient(135deg, #c084fc 0%, #e879f9 50%, #fbbf24 100%);
+        }
+
+        .cosmic-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Question Screen - NEW */
+        .question-container {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
+            padding: 60px;
+            max-width: 600px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .question-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            color: #e0e0e0;
+            margin-bottom: 40px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .answer-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .answer-btn {
+            padding: 20px 30px;
+            font-size: 20px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 2px solid rgba(183, 148, 246, 0.3);
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.4s;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 500;
+            text-align: left;
+        }
+
+        .answer-btn:hover {
+            background: linear-gradient(135deg, rgba(183, 148, 246, 0.2), rgba(102, 126, 234, 0.2));
+            border-color: #b794f6;
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(183, 148, 246, 0.4);
+        }
+
+        .answer-btn.correct {
+            background: linear-gradient(135deg, rgba(255, 110, 199, 0.3), rgba(183, 148, 246, 0.3));
+            border-color: #ff6ec7;
+            animation: correctAnswer 0.6s ease;
+        }
+
+        @keyframes correctAnswer {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Enhanced Constellation */
+        .constellation-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            height: 450px;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            border-radius: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .constellation-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, white, #b794f6);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.4s;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+            z-index: 10;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .constellation-dot::before {
+            content: attr(data-number);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            color: #8cc9f0;
+            opacity: 0.7;
+            font-weight: 600;
+        }
+
+        .constellation-dot:hover {
+            transform: scale(1.6);
+            box-shadow: 0 0 50px rgba(183, 148, 246, 1);
+        }
+
+        .constellation-dot.connected {
+            background: radial-gradient(circle, #ff6ec7, #b794f6);
+            animation: dotPulse 1.5s ease-in-out infinite;
+            box-shadow: 0 0 40px rgba(255, 110, 199, 1);
+        }
+
+        @keyframes dotPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        .constellation-line {
+            position: absolute;
+            background: linear-gradient(90deg, #667eea, #b794f6, #ff6ec7);
+            height: 3px;
+            transform-origin: left center;
+            opacity: 0;
+            transition: opacity 0.8s;
+            box-shadow: 0 0 15px rgba(183, 148, 246, 0.8);
+            z-index: 5;
+        }
+
+        .constellation-line.visible {
+            opacity: 1;
+            animation: lineGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes lineGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(183, 148, 246, 0.8); }
+            50% { box-shadow: 0 0 25px rgba(255, 110, 199, 1); }
+        }
+
+        .instruction-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            text-align: center;
+            color: #b794f6;
+            font-weight: 400;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .progress-text {
+            font-size: 20px;
+            color: #8cc9f0;
+            font-weight: 600;
+            background: rgba(140, 201, 240, 0.1);
+            padding: 12px 30px;
+            border-radius: 30px;
+            border: 2px solid rgba(140, 201, 240, 0.3);
+        }
+
+        /* Enhanced Letter Reveal */
+        .letter-container {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08));
+            backdrop-filter: blur(15px);
+            border: 3px solid rgba(255, 255, 255, 0.15);
+            border-radius: 35px;
+            padding: 50px;
+            max-width: 600px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .letter-container::before {
+            content: '💌';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 40px;
+            opacity: 0.3;
+        }
+
+        .letter-word {
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            margin: 6px;
+            padding: 10px 18px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+            border-radius: 12px;
+            opacity: 0;
+            transform: translateY(30px) rotateX(-90deg);
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            cursor: pointer;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            color: #e0e0e0;
+        }
+
+        .letter-word:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.4), rgba(118, 75, 162, 0.4));
+            transform: translateY(-5px);
+            border-color: rgba(183, 148, 246, 0.5);
+        }
+
+        .letter-word.revealed {
+            opacity: 1;
+            transform: translateY(0) rotateX(0deg);
+        }
+
+        .letter-word.kriseal-highlight {
+            background: linear-gradient(135deg, rgba(255, 110, 199, 0.3), rgba(183, 148, 246, 0.3));
+            border-color: #ff6ec7;
+            font-weight: 600;
+        }
+
+        .letter-from {
+            font-family: 'Dancing Script', cursive;
+            font-size: 32px;
+            color: #ff6ec7;
+            margin-top: 40px;
+            text-align: right;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .letter-from.visible {
+            opacity: 1;
+        }
+
+        /* Enhanced Message Boxes */
+        .message-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .message-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 40px 25px;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message-box::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+            opacity: 0;
+            transition: all 0.6s;
+        }
+
+        .message-box:hover::before {
+            opacity: 1;
+            top: -50%;
+            left: -50%;
+        }
+
+        .message-box:hover {
+            transform: translateY(-15px) scale(1.08) rotateY(5deg);
+            border-color: #b794f6;
+            box-shadow: 0 20px 50px rgba(183, 148, 246, 0.5);
+        }
+
+        .message-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .message-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #8cc9f0;
+            letter-spacing: 1px;
+        }
+
+        .message-box.unlocked {
+            background: linear-gradient(135deg, rgba(255, 110, 199, 0.25), rgba(183, 148, 246, 0.25));
+            border-color: #ff6ec7;
+            animation: unlockGlow 1.5s ease;
+        }
+
+        @keyframes unlockGlow {
+            0%, 100% { 
+                box-shadow: 0 0 30px rgba(255, 110, 199, 0.5); 
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 60px rgba(255, 110, 199, 0.9);
+                transform: scale(1.05);
+            }
+        }
+
+        .message-box.unlocked .message-icon {
+            animation: iconSpin 0.8s ease;
+        }
+
+        @keyframes iconSpin {
+            from { transform: rotate(0deg) scale(1); }
+            to { transform: rotate(360deg) scale(1.3); }
+        }
+
+        /* Enhanced Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s;
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a3e, #2d1b3d);
+            border: 4px solid rgba(183, 148, 246, 0.6);
+            border-radius: 40px;
+            padding: 60px;
+            max-width: 550px;
+            text-align: center;
+            transform: scale(0.7) rotateX(-20deg);
+            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 30px 90px rgba(183, 148, 246, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modal-content::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(183, 148, 246, 0.1) 0%, transparent 70%);
+            animation: modalShimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes modalShimmer {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(10%, 10%); }
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1) rotateX(0deg);
+        }
+
+        .modal-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 42px;
+            color: #ff6ec7;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .modal-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            line-height: 2;
+            color: #e0e0e0;
+            margin-bottom: 35px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .modal-close {
+            padding: 15px 40px;
+            font-size: 18px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 35px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.4s;
+            font-weight: 600;
+            font-family: 'Raleway', sans-serif;
+            position: relative;
+            z-index: 1;
+        }
+
+        .modal-close:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Final Reveal - ENHANCED */
+        .final-container {
+            text-align: center;
+            max-width: 650px;
+            position: relative;
+        }
+
+        .final-glow-circle {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border: 3px solid rgba(255, 110, 199, 0.3);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: finalPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes finalPulse {
+            0%, 100% { 
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.3;
+            }
+            50% { 
+                transform: translate(-50%, -50%) scale(1.1);
+                opacity: 0.6;
+            }
+        }
+
+        .final-name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 110px;
+            background: linear-gradient(45deg, #ff6ec7, #b794f6, #8cc9f0, #ff6ec7);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: nameShine 5s ease infinite;
+            margin-bottom: 40px;
+            filter: drop-shadow(0 0 50px rgba(255, 110, 199, 0.8));
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes nameShine {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .final-message {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            line-height: 2.2;
+            color: #e0e0e0;
+            margin-bottom: 25px;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-love {
+            font-family: 'Dancing Script', cursive;
+            font-size: 56px;
+            background: linear-gradient(135deg, #ff6ec7, #ff9ed8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 50px;
+            animation: loveBeat 1.8s ease-in-out infinite;
+            filter: drop-shadow(0 0 30px rgba(255, 110, 199, 0.7));
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes loveBeat {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.15); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.15); }
+            60% { transform: scale(1); }
+        }
+
+        .heart-burst {
+            position: absolute;
+            font-size: 35px;
+            animation: burstOut 2.5s ease-out;
+            pointer-events: none;
+            filter: drop-shadow(0 0 10px rgba(255, 110, 199, 0.8));
+        }
+
+        @keyframes burstOut {
+            0% {
+                transform: translate(0, 0) scale(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(2) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Particle Effects */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particleFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes particleFloat {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% {
+                transform: translateY(-100vh) translateX(var(--drift));
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .welcome-title { font-size: 64px; }
+            .final-name { font-size: 72px; }
+            .letter-container, .modal-content, .question-container { padding: 35px; }
+            .message-grid { grid-template-columns: 1fr; }
+            .letter-word { font-size: 20px; }
+            .final-message { font-size: 22px; }
+            .final-love { font-size: 44px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Enhanced Background -->
+    <div class="background"></div>
+    <div class="aurora"></div>
+    
+    <!-- Nebula effects -->
+    <div class="nebula" style="top: 20%; left: 10%;"></div>
+    <div class="nebula" style="bottom: 20%; right: 10%; animation-delay: 5s;"></div>
+    
+    <!-- Starfield -->
+    <div class="stars" id="stars"></div>
+
+    <div class="container">
+        <!-- Screen 1: Welcome -->
+        <div class="screen active" id="screen1">
+            <div class="welcome-container">
+                <div class="sparkle-circle"></div>
+                <h1 class="welcome-title">Kriseal</h1>
+                <p class="welcome-subtitle">I created something special for you...</p>
+                <button class="cosmic-btn" onclick="goToScreen(2)">
+                    <span>Begin Our Journey ✨</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Screen 2: Question -->
+        <div class="screen" id="screen2">
+            <div class="question-container">
+                <p class="question-text">
+                    Before we continue, Kriseal...<br>
+                    How do I feel when we talk?
+                </p>
+                <div class="answer-options">
+                    <button class="answer-btn" onclick="checkAnswer(this, false)">
+                        Like it's just another conversation
+                    </button>
+                    <button class="answer-btn" onclick="checkAnswer(this, false)">
+                        It's nice, but nothing special
+                    </button>
+                    <button class="answer-btn" onclick="checkAnswer(this, true)">
+                        Like I don't want it to end 💫
+                    </button>
+                    <button class="answer-btn" onclick="checkAnswer(this, false)">
+                        I'm not really sure
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 3: Connect the Stars -->
+        <div class="screen" id="screen3">
+            <p class="instruction-text">
+                Connect the stars in order<br>
+                Each one reveals more of my feelings 💫
+            </p>
+            <div class="constellation-container" id="constellation"></div>
+            <p class="progress-text" id="constellationProgress">0 / 7 stars connected</p>
+        </div>
+
+        <!-- Screen 4: Letter Reveal -->
+        <div class="screen" id="screen4">
+            <p class="instruction-text">
+                Click each word to reveal my letter 💌
+            </p>
+            <div class="letter-container" id="letterContainer"></div>
+        </div>
+
+        <!-- Screen 5: Reasons Collection -->
+        <div class="screen" id="screen5">
+            <p class="instruction-text">
+                Unlock each one to discover<br>
+                what makes you so special to me ⭐
+            </p>
+            <div class="message-grid">
+                <div class="message-box" onclick="showMessage(0)">
+                    <div class="message-icon">✨</div>
+                    <div class="message-title">Your Smile</div>
+                </div>
+                <div class="message-box" onclick="showMessage(1)">
+                    <div class="message-icon">💫</div>
+                    <div class="message-title">Your Laugh</div>
+                </div>
+                <div class="message-box" onclick="showMessage(2)">
+                    <div class="message-icon">🌙</div>
+                    <div class="message-title">Your Energy</div>
+                </div>
+                <div class="message-box" onclick="showMessage(3)">
+                    <div class="message-icon">⭐</div>
+                    <div class="message-title">Who You Are</div>
+                </div>
+            </div>
+            <button class="cosmic-btn" onclick="goToScreen(6)" id="finalBtn" style="opacity: 0; pointer-events: none; transition: all 0.8s;">
+                <span>Continue to Final Message 💕</span>
+            </button>
+        </div>
+
+        <!-- Screen 6: Final Reveal -->
+        <div class="screen" id="screen6">
+            <div class="final-container">
+                <div class="final-glow-circle"></div>
+                <div class="final-name">Kriseal</div>
+                <div class="final-message">
+                    From the moment we started talking,<br>
+                    something just clicked 🌟<br><br>
+                    Every conversation with you makes me smile,<br>
+                    every laugh we share stays with me,<br>
+                    and honestly... I can't stop thinking about you 💭<br><br>
+                    I know we're still getting to know each other,<br>
+                    but I wanted you to know how I feel 💫
+                </div>
+                <div class="final-love">I'm falling for you, Kriseal 💕</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Messages -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="modal-title" id="modalTitle"></div>
+            <div class="modal-text" id="modalText"></div>
+            <button class="modal-close" onclick="closeModal()">Close ✨</button>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced starfield with different sizes
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 200; i++) {
+                const star = document.createElement('div');
+                const size = Math.random();
+                star.className = size < 0.6 ? 'star small' : size < 0.9 ? 'star medium' : 'star large';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        function createShootingStar() {
+            const star = document.createElement('div');
+            star.className = 'shooting-star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 30 + '%';
+            document.getElementById('stars').appendChild(star);
+            setTimeout(() => star.remove(), 1500);
+        }
+
+        function createParticles() {
+            for (let i = 0; i < 5; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.bottom = '0';
+                particle.style.setProperty('--drift', (Math.random() - 0.5) * 200 + 'px');
+                particle.style.animationDelay = Math.random() * 4 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                document.body.appendChild(particle);
+                setTimeout(() => particle.remove(), 7000);
+            }
+        }
+
+        createStars();
+        setInterval(createShootingStar, 2000);
+        setInterval(createParticles, 2000);
+
+        // Screen navigation
+        let currentScreen = 1;
+        function goToScreen(screenNum) {
+            document.getElementById('screen' + currentScreen).classList.remove('active');
+            currentScreen = screenNum;
+            document.getElementById('screen' + screenNum).classList.add('active');
+            
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            if (screenNum === 3) initConstellation();
+            if (screenNum === 4) initLetter();
+            if (screenNum === 6) setTimeout(createHeartBurst, 500);
+        }
+
+        // Question Screen
+        function checkAnswer(btn, isCorrect) {
+            if (isCorrect) {
+                btn.classList.add('correct');
+                setTimeout(() => goToScreen(3), 1200);
+            } else {
+                btn.style.opacity = '0.3';
+                btn.style.pointerEvents = 'none';
+            }
+        }
+
+        // Enhanced Constellation
+        let constellationOrder = 0;
+        const constellationPositions = [
+            {x: 80, y: 50}, {x: 180, y: 100}, {x: 280, y: 80}, 
+            {x: 380, y: 140}, {x: 320, y: 240}, {x: 200, y: 280}, {x: 120, y: 200}
+        ];
+
+        function initConstellation() {
+            const container = document.getElementById('constellation');
+            container.innerHTML = '';
+            constellationOrder = 0;
+
+            constellationPositions.forEach((pos, index) => {
+                const dot = document.createElement('div');
+                dot.className = 'constellation-dot';
+                dot.style.left = pos.x + 'px';
+                dot.style.top = pos.y + 'px';
+                dot.dataset.index = index;
+                dot.dataset.number = index + 1;
+                dot.onclick = () => connectStar(index);
+                container.appendChild(dot);
+            });
+        }
+
+        function connectStar(index) {
+            if (index !== constellationOrder) return;
+
+            const dots = document.querySelectorAll('.constellation-dot');
+            dots[index].classList.add('connected');
+
+            if (index > 0) {
+                drawLine(constellationOrder - 1, constellationOrder);
+            }
+
+            constellationOrder++;
+            document.getElementById('constellationProgress').textContent = 
+                `${constellationOrder} / 7 stars connected`;
+
+            if (constellationOrder === 7) {
+                setTimeout(() => {
+                    createMiniCelebration();
+                    setTimeout(() => goToScreen(4), 800);
+                }, 600);
+            }
+        }
+
+        function drawLine(from, to) {
+            const container = document.getElementById('constellation');
+            const pos1 = constellationPositions[from];
+            const pos2 = constellationPositions[to];
+            
+            const line = document.createElement('div');
+            line.className = 'constellation-line visible';
+            
+            const dx = pos2.x - pos1.x;
+            const dy = pos2.y - pos1.y;
+            const length = Math.sqrt(dx * dx + dy * dy);
+            const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+            
+            line.style.left = (pos1.x + 10) + 'px';
+            line.style.top = (pos1.y + 10) + 'px';
+            line.style.width = length + 'px';
+            line.style.transform = `rotate(${angle}deg)`;
+            
+            container.appendChild(line);
+        }
+
+        function createMiniCelebration() {
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => createShootingStar(), i * 100);
+            }
+        }
+
+        // Enhanced Letter Reveal
+        const letterText = [
+            "Dear", "Kriseal,", "From", "the", "first", "time", "we", "talked,", "I", "felt",
+            "something", "different.", "You're", "not", "like", "anyone", "I've", "met", "before.",
+            "Your", "smile,", "your", "laugh,", "the", "way", "you", "see", "the", "world...",
+            "Everything", "about", "you", "draws", "me", "in.", "I", "love", "how", "easy",
+            "it", "is", "to", "talk", "to", "you,", "how", "you", "make", "me", "feel",
+            "like", "I", "can", "be", "myself.", "Kriseal,", "you're", "amazing,", "and",
+            "I", "just", "wanted", "you", "to", "know", "that.", "💫"
+        ];
+
+        function initLetter() {
+            const container = document.getElementById('letterContainer');
+            container.innerHTML = '';
+
+            letterText.forEach((word, index) => {
+                const span = document.createElement('span');
+                span.className = 'letter-word';
+                if (word === 'Kriseal,' || word === 'Kriseal') {
+                    span.classList.add('kriseal-highlight');
+                }
+                span.textContent = word;
+                span.onclick = () => revealWord(span, index);
+                container.appendChild(span);
+            });
+
+            const from = document.createElement('div');
+            from.className = 'letter-from';
+            from.textContent = '- Me 💕';
+            container.appendChild(from);
+        }
+
+        let revealedWords = 0;
+        function revealWord(element, index) {
+            if (!element.classList.contains('revealed')) {
+                element.classList.add('revealed');
+                revealedWords++;
+                
+                if (revealedWords === letterText.length) {
+                    document.querySelector('.letter-from').classList.add('visible');
+                    setTimeout(() => goToScreen(5), 2000);
+                }
+            }
+        }
+
+        // Message Collection
+        const messages = [
+            {
+                title: "Your Smile ✨",
+                text: "Kriseal, your smile is like sunshine breaking through clouds. It's genuine, warm, and absolutely radiant. Every time I see it, whether in person or in my mind, it brightens my entire day. There's something magical about the way you smile that makes everything feel right. 😊💫"
+            },
+            {
+                title: "Your Laugh 💫",
+                text: "The way you laugh is one of my favorite sounds. It's so real, so beautiful, and it lights up everything around you. When you laugh, I can't help but smile too. Your happiness is contagious, Kriseal, and I find myself wanting to be the reason behind that laugh every day. 🌟"
+            },
+            {
+                title: "Your Energy 🌙",
+                text: "Your energy is something special. You have this amazing ability to make people feel comfortable and valued. When we talk, everything just flows naturally. You bring such positive vibes into my life, Kriseal, and being around your energy makes me feel alive. You're truly one of a kind. ✨"
+            },
+            {
+                title: "Who You Are ⭐",
+                text: "Honestly, Kriseal, it's everything. It's the way you think, the way you care, the way you're just... you. You're smart, beautiful, funny, kind, and so much more. Getting to know you has been incredible, and I genuinely can't imagine not having you in my life now. You're everything I didn't know I was looking for. 💕"
+            }
+        ];
+
+        let unlockedMessages = 0;
+        function showMessage(index) {
+            const boxes = document.querySelectorAll('.message-box');
+            if (!boxes[index].classList.contains('unlocked')) {
+                boxes[index].classList.add('unlocked');
+                unlockedMessages++;
+
+                document.getElementById('modalTitle').textContent = messages[index].title;
+                document.getElementById('modalText').textContent = messages[index].text;
+                document.getElementById('modal').classList.add('active');
+
+                if (unlockedMessages === 4) {
+                    const btn = document.getElementById('finalBtn');
+                    btn.style.opacity = '1';
+                    btn.style.pointerEvents = 'auto';
+                }
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        // Enhanced Heart burst for final screen
+        function createHeartBurst() {
+            const hearts = ['💕', '💖', '💗', '💝', '✨', '⭐', '💫', '🌟'];
+            for (let i = 0; i < 40; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart-burst';
+                    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.style.left = '50%';
+                    heart.style.top = '50%';
+                    
+                    const angle = (Math.PI * 2 * i) / 40;
+                    const distance = Math.random() * 400 + 200;
+                    heart.style.setProperty('--tx', Math.cos(angle) * distance + 'px');
+                    heart.style.setProperty('--ty', Math.sin(angle) * distance + 'px');
+                    
+                    document.body.appendChild(heart);
+                    setTimeout(() => heart.remove(), 2500);
+                }, i * 60);
+            }
+        }
+
+        // Monitor final screen for celebration
+        const observer = new MutationObserver(() => {
+            if (document.getElementById('screen6').classList.contains('active')) {
+                createHeartBurst();
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(createShootingStar, i * 400);
+                }
+            }
+        });
+
+        observer.observe(document.getElementById('screen6'), {
+            attributes: true,
+            attributeFilter: ['class']
+        });
+    </script>
+</body>
+</html>
